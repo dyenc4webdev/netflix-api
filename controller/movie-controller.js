@@ -15,7 +15,7 @@ router.get('/add-movies', async(req, res)=>{
 
         }
     )
-    // res.sendFile(path.join(__dirname,"../", "views", "movies.html"))
+    //  res.sendFile(path.join(__dirname,"../", "views", "movies.html"))
 })
 router.get('/', (req,res)=>{
     res.send("<h1>HOME PAGE</h1>")
