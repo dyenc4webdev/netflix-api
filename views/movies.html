@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        <!-- <%= pageTitle %> -->
+    </title>
+    <style>
+        label {
+            display: block;
+        }
+    </style>
+</head>
+
+<body>
+    <form action="/admin/add-movies" method="post">
+        <label for="title">
+            title:
+            <input type="text" name="title" id="title">
+        </label>
+        <label for="moviesBrief">
+            Brief:
+            <input type="text" name="moviesBrief" id="moviesBrief">
+        </label>
+        <label for="cast">
+            Cast:
+            <input type="text" name="cast" id="cast">
+        </label>
+        <label for="director">
+            Director:
+            <input type="text" name="director" id="director">
+        </label>
+        <label for="writer">
+            Writer:
+            <input type="text" name="writer" id="writer">
+        </label>
+        <label for="maturityRating">
+            Maturity Rating:
+            <input type="text" name="maturityRating" id="maturityRating">
+        </label>
+        <label for="theMovieIs">
+            The Movie is:
+            <input type="text" name="theMovieIs" id="theMovieIs">
+        </label>
+        <label for="length">
+            Length:
+            <input type="text" name="length" id="length">
+        </label>
+        <label for="YOP">
+            Year of Production:
+            <input type="text" name="yearOfProduction" id="YOP">
+        </label>
+        <label for="keywords">
+            Keywords:
+            <input type="text" name="keywords" id="keywords">
+        </label>
+        <label for="collections">
+            Collections:
+            <input type="text" name="collections" id="collections">
+        </label>
+        <label for="categories">
+            Categories:
+            <input type="text" name="categories" id="categories">
+        </label>
+        <label for="imageUrl">
+            Image:
+            <input type="text" name="imageUrl" id="imageUrl">
+        </label>
+        <label for="mainVideoUrl">
+            Video:
+            <input type="text" name="mainVideoUrl" id="mainVideoUrl">
+        </label>
+        <label for="traillerVideoUrl">
+            Trailler:
+            <input type="text" name="traillerVideoUrl" id="traillerVideoUrl">
+        </label>
+        <input type="submit" value="submit">
+    </form>
+</body>
+
+</html>

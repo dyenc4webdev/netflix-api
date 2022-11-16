@@ -3,28 +3,61 @@ const Schema = mongoose.Schema
 
 
 const moviesSchema = new Schema({
-    title:String,
+    title:{
+        type: String,
+        require: true
+    },
     aboutMovie: {
-        moviesBrief: { type: String },
+        moviesBrief: {
+            type: String,
+            require: true
+        },
         cast:[],
         crew: {
-            director: { type: String },
-            writer: { type: String }
+            director: {
+                type: String,
+                require: true
+            },
+            writer: {
+                type: String,
+                require: true
+            },
         },
-        maturityRating: { type: String },
-        theMovieIs: { type: String },
-        length: { type: String },
-        yearOfProduction:{ type: Number },
+        maturityRating: {
+            type: String,
+            require: true
+        },
+        theMovieIs: {
+            type: String,
+            require: true
+        },
+        length: {
+            type: String,
+            require: true
+        },
+        yearOfProduction:{
+            type: String,
+            require: true
+        },
     },
     keywords:[],
     collections:[],
     categories:[],
-    imageUrl: String,
-    mainVideoUrl: String,
-    thrillerVideoUrl: String
+    imageUrl: {
+        type: String,
+        require: true
+    },
+    mainVideoUrl: {
+        type: String,
+        require: true
+    },
+    thrillerVideoUrl: {
+        type: String,
+        require: true
+    },
 
 })
 
 
 
-module.exports = mongoose.model('movies', moviesSchema)
+module.exports = mongoose.model('Movie', moviesSchema)
