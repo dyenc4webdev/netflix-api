@@ -8,7 +8,7 @@ const moviesSchema = new Schema({
         require: true
     },
     aboutMovie: {
-        moviesBrief: {
+        brief: {
             type: String,
             require: true
         },
@@ -23,7 +23,7 @@ const moviesSchema = new Schema({
                 require: true
             },
         },
-        maturityRating: {
+        rating: {
             type: String,
             require: true
         },

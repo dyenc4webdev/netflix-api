@@ -6,7 +6,7 @@ const app = express()
 const authController = require('./controller/auth-controller')
 const movieController = require('./controller/movie-controller')
 
-mongoose.connect("mongodb+srv://dyenc4:webdev@netflix-api.jlugppo.mongodb.net/?retryWrites=true&w=majority")
+mongoose.connect("mongodb+srv://dyenc4:webdev@netflix-api.jlugppo.mongodb.net/netflix?retryWrites=true&w=majority")
 .then(result=>{
     console.log("DATABASE CONNECTED");
 })
@@ -18,9 +18,10 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/signup', authController)
 app.use('/admin', movieController)
-// app.use('/', (req,res)=>{
-//     res.send('<h1>HOME PAGE</h1>')
-// })
-app.listen(6000, ()=>{
+
+app.get('/', (req,res)=>{
+    res.send('<h1>HOME PAGE</h1>')
+})
+app.listen(2000, ()=>{
     console.log("app working perfectly");
 })
