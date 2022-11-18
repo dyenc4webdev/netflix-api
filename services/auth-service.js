@@ -1,21 +1,21 @@
 const AsyncWrapper = require('express-async-wrapper')
-const { DefaultError, ValidationError } = require("../utils/apiError");
+const { DefaultError, AuthenticationError } = require("../utils/apiError");
 const User = require('../model/user')
 const jwt = require('jsonwebtoken')
-const register =  AsyncWrapper(async(payload)=>{
+
+const register =  async(payload)=>{
     const user = await findByEmail(payload.email)
     
     if(user){
-        throw new ValidationError();
+        throw new AuthenticationError();
     }
     try {
-        const newUser = await user(payload)
+        const newUser = await User(payload)
         return newUser.save()
     } catch (error) {   
         throw new DefaultError()
-        
     }
-})
+}
 const login = AsyncWrapper(async(payload)=>{
     const {email, password} = payload
     const user = await findByEmail(email)

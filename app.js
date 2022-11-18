@@ -5,6 +5,7 @@ const app = express()
 
 const authController = require('./controller/auth-controller')
 const movieController = require('./controller/movie-controller')
+const myListController = require('./controller/myList-controller')
 
 mongoose.connect("mongodb+srv://dyenc4:webdev@netflix-api.jlugppo.mongodb.net/netflix?retryWrites=true&w=majority")
 .then(result=>{
@@ -16,8 +17,9 @@ app.set('views', "views")
 app.use(express.json())
 app.use(express.urlencoded({extended: false}))
 
-app.use('/signup', authController)
 app.use('/admin', movieController)
+app.use('/list', myListController)
+app.use('/signup', authController)
 
 app.get('/', (req,res)=>{
     res.send('<h1>HOME PAGE</h1>')

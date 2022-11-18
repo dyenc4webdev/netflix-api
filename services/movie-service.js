@@ -3,8 +3,10 @@ const Movie = require('../model/movies')
 const addMovies = async (movie)=>{
     const newMovie = new Movie({
         ...movie,
-        // movie.cast.slit(" , ")
     })
+    // const newMovie = new Movie({
+        
+    // })
     try {
         const movies = await newMovie.save()
         return movies
