@@ -1,4 +1,4 @@
-const bodyParser = require('body-parser')
+require('dotenv').config()
 const express = require('express')
 const mongoose = require('mongoose')
 const app = express()
@@ -19,7 +19,7 @@ app.use(express.urlencoded({extended: false}))
 
 app.use('/admin', movieController)
 app.use('/list', myListController)
-app.use('/signup', authController)
+app.use('/api/auth', authController)
 
 app.get('/', (req,res)=>{
     res.send('<h1>HOME PAGE</h1>')
