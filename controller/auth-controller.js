@@ -2,10 +2,9 @@ const router = require('express').Router()
 const AsyncWrapper = require('express-async-wrapper')
 const User = require('../model/user')
 
-const {register} = require('../services/auth-service')
+const {register, login} = require('../services/auth-service')
 router.post('/register', AsyncWrapper(async (req,res)=>{
   const response = await register(req.body)
-  // const newUser = new User(req.body)
   console.log(response);
   
   if(response){
@@ -19,9 +18,27 @@ router.post('/register', AsyncWrapper(async (req,res)=>{
   
 })
 )
-router.get('/register', async(req, res)=>{
+router.get('/login', async(req, res)=>{
   res.render('movies',{
-    pageTitle: "Registration"
+    pageTitle: "Login"
   })
 })
+router.post("/login", AsyncWrapper( async(req, res)=>{
+  /**
+		 * accept request and send to login service
+		 */
+    const response = await login(req.body, req.header)
+    try {
+      if (response){
+        res.json({
+          message: "Successful login",
+          payload: response
+        })
+      }
+      return;
+    } catch (error) {
+      console.log(error);
+    }
+})
+)
 module.exports = router

@@ -1,0 +1,8 @@
+20221209	19:52:00	a68e6e49-e136-4288-af29-6c93f0d666df	GET	undefined	/auth/login
+20221209	19:55:35	31aa1741-d75b-4167-8ec6-0f5b7d22a65b	GET	undefined	/auth/login
+20221209	20:01:13	cea960a7-c151-4657-95c1-cdbab04932fc	GET	undefined	/auth/login
+20221209	20:01:47	ba8b8c64-66fa-4d9c-a8bc-0f6ea585b7e7	GET	undefined	/auth/login
+20221209	21:59:32	9e69c946-687e-4583-b568-29d1e794bbf7	GET	undefined	/auth/login
+20221212	09:48:13	2d160b46-2800-434c-93dc-df78cf2848b0	GET	undefined	/auth/login
+20221212	09:48:14	be6755a3-91ba-4432-be58-2aaeb1d44760	GET	undefined	/favicon.ico
+20221212	09:48:26	ba0b02b2-7c0b-45a1-9d42-5bfc79a1688e	POST	http://localhost:4500	/auth/login

@@ -4,22 +4,37 @@ const User = require('../model/user')
 
 const addToList = async(movieId)=>{
     const movie = await Movie.findById(movieId)
-    const moviesList = Object(User().myList.moviesList)
-    console.log(moviesList);
+
+    const user = await User.findById('6390af0e72ba277334fc9367')
+    const {email, password} = user
+    const moviesList = User().myList.moviesList
+    // console.log(moviesList);
     try {
+        // THIS LINE CHECKS THE MOVIE ID, 
         const listIndex = moviesList.findIndex(mL=>{
             return mL.movieId.toString() === movie._id.toString()
         })
+
+        // DONT WANT TO MUTATE MY ARRAY SO I USED THE REST OPERATOR
         const updatedMovieList = [...moviesList]
+
+        // CHECK IF THERE IS NO MOVIE IN MY LIST WITH THE MOVIE ID, HENCE ADD A NEW MOVIE TO "moviesList" 
         if(!listIndex){
             updatedMovieList.push({
-                movieId: movie._id
+                movieId: movie._id,
+                title: movie.title
             })
         }
+        // STORE THE UPDATED MOVIELIST IN A NEW VARIABLE
         const updatedList = {moviesList: updatedMovieList}
-        User().myList = updatedList
-        return User.save()
-        // return User.addToList(movie)
+        
+        // SAVING LATEST UPDATE TO USER COLLECTION
+        const updatingUser =  await User({
+            email: email,
+            password: password,
+            myList: updatedList
+        }) 
+        return updatingUser.save()
     } catch (error) {
         console.log(error);
     }

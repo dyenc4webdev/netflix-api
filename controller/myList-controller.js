@@ -1,4 +1,7 @@
-const { addToList, getList, removeFromList } = require('../services/myList-service')
+const { addToList, 
+    // getList, 
+    // removeFromList 
+} = require('../services/myList-testService')
 
 
 const router = require('express').Router()
@@ -18,7 +21,7 @@ router.get('/movie-list', async(req, res)=>{
         res.json(listedMovies)
     }
 })
-router.post('/:movieId', async(req,res)=>{
+router.post('removeFromList/:movieId', async(req,res)=>{
     const movieId = req.params.movieId
     const movieList = await removeFromList(movieId)
     try {

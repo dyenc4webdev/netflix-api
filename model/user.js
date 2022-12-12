@@ -13,12 +13,21 @@ const userSchema = new Schema({
     myList: {
         moviesList: [
             {
+                title: {
+                    type: String,
+                    // required: true,
+                    ref: "Movie"
+                },
                 movieId: {
                     type: Schema.Types.ObjectId,
                     ref: "Movie"
                 }
             }
         ]
+    },
+    planform: {
+        type: Schema.Types.ObjectId,
+        ref: "Planform"
     }
 
 })
