@@ -3,6 +3,15 @@ const { DefaultError, AuthenticationError } = require("../utils/apiError");
 const User = require('../model/user')
 const jwt = require('jsonwebtoken')
 const bcrypt = require('bcryptjs')
+// MAIL
+const nodeMailer = require('nodemailer')
+const nodeMailerSendGrid = require('nodemailer-sendgrid')
+const transporter = nodeMailer.createTransport({
+  auth: {
+    api_key: ''
+  }
+
+})
 
 const register =  async(payload)=>{
     const user = await findByEmail(payload.email)
@@ -19,6 +28,12 @@ const register =  async(payload)=>{
             email: email,
             password: harshedPwd,
             myList: {moviesList: []}
+        })
+        transporter.sendMail({
+            to: email,
+            from: "dyenc4webdev@gmail.com",
+            subject: "Sign Up Succeeded",
+            TemplateId: ""
         })
         return newUser.save()
     } catch (error) {   
@@ -53,7 +68,7 @@ function serializeUser(user) {
 	return {
 		id: user?._id,
 		email: user?.email,
-		password: user?.password,
+		// password: user?.password,
 	};
 }
 module.exports = {

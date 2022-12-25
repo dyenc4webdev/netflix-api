@@ -1,15 +1,18 @@
 const { addToList, 
     // getList, 
     // removeFromList 
-} = require('../services/myList-testService')
+} = require('../services/myList-service')
 
 
 const router = require('express').Router()
 
 
-router.post('/:movieId', async(req,res)=>{
+router.put('/:movieId', async(req,res)=>{
     const movieId = req.params.movieId
-    const movieList = await addToList(movieId)
+    const { authorization } = req.headers;
+     const token = authorization
+    console.log(token);
+    const movieList = await addToList(movieId, token)
     if(movieList){
         res.redirect('/movie-list')
     }

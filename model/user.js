@@ -13,11 +13,11 @@ const userSchema = new Schema({
     myList: {
         moviesList: [
             {
-                title: {
-                    type: String,
-                    // required: true,
-                    ref: "Movie"
-                },
+                // title: {
+                //     type: String,
+                //     // required: true,
+                //     ref: "Movie"
+                // },
                 movieId: {
                     type: Schema.Types.ObjectId,
                     ref: "Movie"

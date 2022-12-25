@@ -15,6 +15,7 @@ const auth = async (req, res, next) => {
 				try {
 					const user = await User.findById({ _id: decoded.id });
 					if (user) {
+						req.user = user
 						return next();
 					} else {
 						return res.status(401).json({
